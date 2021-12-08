@@ -41,12 +41,14 @@ INSTALLED_APPS = (
     'docker_django.apps.todo',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
+    # custom middleware
+    'docker_django.middleware.health_check.HealthCheckMiddleware',
+    # default middleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
