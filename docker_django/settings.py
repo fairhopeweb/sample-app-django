@@ -91,19 +91,6 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ['DATABASE_URL'])
 }
 
-# decrypt URL before using
-REDIS_URL = urllib.parse.unquote(os.environ['REDIS_URL'])
-
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": REDIS_URL,
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        }
-    }
-}
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
