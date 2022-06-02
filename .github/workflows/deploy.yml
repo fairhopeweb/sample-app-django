@@ -1,0 +1,16 @@
+name: Deployment
+on:
+  push:
+    branches: [main]
+
+jobs:
+  setops-deployment:
+    uses: setopsco/github-actions/.github/workflows/build-and-deployment-workflow.yml@v2
+    with:
+      setops-organization: zweitag
+      setops-project: samples
+      setops-stages: django
+      setops-apps: web
+    secrets:
+      setops-username: ${{ secrets.SETOPS_USER }}
+      setops-password: ${{ secrets.SETOPS_PASSWORD }}
