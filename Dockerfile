@@ -7,6 +7,7 @@ RUN apt-get update -qq \
   && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
     build-essential \
     curl \
+    grep \
     libpq-dev
 
 COPY requirements.txt requirements.txt
