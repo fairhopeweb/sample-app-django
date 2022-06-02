@@ -51,6 +51,7 @@ docker pull ghcr.io/setopsco/sample-app-django:latest
 
    ```
    setops -p samples -s django --app web container:set command -- /bin/bash -c "python manage.py makemigrations todo && python manage.py migrate && gunicorn docker_django.wsgi:application -w 2 -b :5000"
+   setops -p samples -s django --app web container:set health-check -- /bin/bash -c 'curl -s http://localhost:$PORT/health/ | grep ok'
    setops -p samples -s django --app web network:set health-check-path /health/
    setops -p samples -s django --app web network:set public true
    setops -p samples -s django --app web network:set port 5000
